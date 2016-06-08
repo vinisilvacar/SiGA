@@ -1,14 +1,1 @@
-*.txt
-user_guide
-./
-.DS_Store
-.buildpath
-.project
-.settings/
-siga.sublime-workspace
-
-/application/upload_files
-/vendor-dependencies
-/application/constants/EmailSenderData.php
-application/third_party/
-
+.vagrant/
