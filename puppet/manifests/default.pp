@@ -1,5 +1,6 @@
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 
+include migrate
 include apache
 include git
 include php
