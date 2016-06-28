@@ -1,7 +1,15 @@
 branches:
   only:
   - gcs
+
 language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 php:
   - 5.6
   - 7.0
@@ -12,8 +20,6 @@ matrix:
   allow_failures:
     - php: nightly
     - php: hhvm
-
-sudo: false
 
 before_install:
   - composer self-update
