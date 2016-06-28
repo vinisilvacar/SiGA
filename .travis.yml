@@ -22,3 +22,4 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit
+  - phpunit --configuration tests/phpunit.xml
