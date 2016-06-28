@@ -10,35 +10,46 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-addons:
-  apt:
-    packages:
-      - parallel
-
+# list any PHP version you want to test against
 php:
+  # using major version aliases
+
+  # aliased to 5.2.17
+  - 5.2
+  # aliased to 5.3.29
   - 5.3
+  # aliased to a recent 5.4.x version
   - 5.4
+  # aliased to a recent 5.5.x version
   - 5.5
+  # aliased to a recent 5.6.x version
   - 5.6
+  # aliased to a recent 7.x version
   - 7.0
+  # aliased to a recent hhvm version
   - hhvm
-  - nightly
 
+# optionally specify a list of environments, for example to test different RDBMS
+env:
+  - DB=mysql
+
+# optionally set up exclutions and allowed failures in the matrix
 matrix:
-  fast_finish: true
+  exclude:
+    - php: hhvm
+      
   allow_failures:
-    - php: nightly
+    - php: 7.0
+    - php: hhvm
 
+# execute any number of scripts before the test run, custom env's are available as variables
 before_script:
-    - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
-    - flags="--prefer-dist"
-    - composer install $flags
-    - bin/composer install $flags
-    - git config --global user.name travis-ci
-    - git config --global user.email travis@example.com
+  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
 
-script:
-    - ls -d tests/Composer/Test/* | parallel --gnu --keep-order 'echo "Running {} tests"; ./vendor/bin/phpunit -c tests/complete.phpunit.xml --colors=always {} || (echo -e "\e[41mFAILED\e[0m {}" && $(exit 1));'
+# omitting "script:" will default to phpunit
+# use the $DB env variable to determine the phpunit.xml to use
+script: phpunit --configuration phpunit_$DB.xml --coverage-text
 
-git:
-  depth: 5
+# configure notifications (email, IRC, campfire etc)
+notifications:
+  irc: "irc.freenode.org#yourfavouriteroomfortravis"
