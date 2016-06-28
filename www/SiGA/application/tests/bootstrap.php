@@ -205,3 +205,5 @@ if (defined('ENVIRONMENT'))
 /* Location: ./bootstrap.php */
 
 require_once('load.php');
+
+require 'vendor/autoload.php';
