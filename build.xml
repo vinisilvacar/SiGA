@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="SiGA" basedir="." default="build">
+    <property name="dir-build" value="./build" />
+    <property name="dir-tests" value="./tests" />
+    <property name="dir-tests-logs" value="./tests/_reports" />
+    <property name="dir-logs" value="./build/logs" />
+    <property name="dir-app" value="./libs" />
+        
+    <!-- ============== -->
+    <!-- = Clean Task = -->
+    <!-- ============== -->
+    <target name="clean">
+        <echo msg="Cleaning build directories ..." />
+        <delete dir="${dir-build}" />
+        <echo msg="Cleaning unit tests results ..." />
+        <delete>
+        	<fileset dir="${dir-tests}/_reports/">
+        		<include name="**/*.php" />
+        	</fileset>
+        </delete>
+    </target>
+
+    
+    <!-- ========== -->
+    <!-- = Composer = -->
+    <!-- ========== -->
+    <target name="composer">
+        <echo msg="Running composer install ..." />
+        <exec command="composer install" logoutput="true" escape="false" />
+    </target>
+    
+    <!-- ========================== -->
+    <!-- = Make distribution Task = -->
+    <!-- ========================== -->
+    <target name="makedist">
+        <echo msg="Moving files to distribution directory ..." />
+        <copy todir="${dir-build}/dist/">
+            <fileset dir=".">
+                <exclude name="build/**" />
+                <exclude name="tests/**" />
+                <exclude name="composer**" />
+                <exclude name="phpunit**" />
+                <exclude name="phpdoc**" />
+                <include name="**" />
+            </fileset>
+        </copy>
+        <tar destfile="${dir-build}/dist.tar.gz" compression="gzip">
+            <fileset dir="${dir-build}/dist">
+                <include name="**" />
+            </fileset>
+        </tar>
+    </target>
+    
+    <!-- ================== -->
+    <!-- = Structure Task = -->
+    <!-- ================== -->
+    <target name="structure">
+        <echo msg="Creating structure ..." />
+        <mkdir dir="${dir-build}" />
+        <mkdir dir="${dir-build}/docs" />
+        <mkdir dir="${dir-logs}" />
+        <mkdir dir="${dir-build}/dist" />
+    </target>
+    
+    <!-- ================ -->
+    <!-- = PHPUnit Task = -->
+    <!-- ================ -->
+    <target name="phpunit">
+        <echo msg="Running unit tests in ${dir-tests} ..." />
+        <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
+    </target>
+
+</project>
