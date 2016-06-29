@@ -4,11 +4,8 @@ branches:
 
 language: php
 
-env:
-    - RUN=phpunit
-    - RUN=vendor/bin/phpunit
-
-script: $RUN
+script: 
+    - phpunit
 
 php:
     - 5.6
