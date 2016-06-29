@@ -3,7 +3,7 @@
 [![Stories in Progress](https://badge.waffle.io/Sistema-Integrado-Gestao-Academica/SiGA.png?label=in progress&title=In Progress)]
 (https://waffle.io/Sistema-Integrado-Gestao-Academica/SiGA)
 
-[![Build Status](https://travis-ci.org/vinisilvacar/SiGA.svg?branch=master)](https://travis-ci.org/vinisilvacar/SiGA)
+[![Build Status](https://travis-ci.org/vinisilvacar/SiGA.svg?branch=gcs)](https://travis-ci.org/vinisilvacar/SiGA)
 
 [![Throughput Graph](https://graphs.waffle.io/sistema-integrado-gestao-academica/siga/throughput.svg)](https://waffle.io/sistema-integrado-gestao-academica/siga/metrics)
 
