@@ -8,7 +8,7 @@ env:
     - RUN=phpunit
     - RUN=vendor/bin/phpunit
 
-script: RUN
+script: $RUN
 
 php:
     - 5.6
