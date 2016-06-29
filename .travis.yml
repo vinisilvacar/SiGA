@@ -4,13 +4,12 @@ branches:
 
 language: php
 
-script: 
-    - phpunit
+script:
+    - ./vendor/bin/phpunit
 
 php:
     - 5.6
 
 before_script:
     - composer selfupdate
-    - composer --version
     - composer install
