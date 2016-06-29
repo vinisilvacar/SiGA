@@ -27,7 +27,7 @@
 
 	"require-dev": {
 		"mikey179/vfsStream": "1.1.*",
-		"phpunit/phpunit": "*",
+		"phpunit/phpunit": "4.3.*",
 		"phpmd/phpmd": "*"
 	}
 }

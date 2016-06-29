@@ -5,7 +5,7 @@ branches:
 language: php
 
 script:
-    - ./vendor/bin/phpunit
+    - phpunit --testsuite=unit --coverage-text --coverage-clover build/logs/clover.xml
 
 php:
     - 5.6
