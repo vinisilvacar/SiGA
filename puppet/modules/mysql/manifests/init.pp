@@ -29,7 +29,6 @@ class phpmyadmin {
 	exec{ 'mysql -u root < /vagrant/database.sql':
 	command => 'mysql -u root < /vagrant/database.sql',
 	require => Package['mysql-server'],
-
-
 	}
+
 }
