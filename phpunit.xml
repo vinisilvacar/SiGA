@@ -1,0 +1,12 @@
+<phpunit bootstrap="./www/SiGA/phpunit.php">
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./www/SiGA</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./www</directory>
+        </whitelist>
+    </filter>
+</phpunit>
