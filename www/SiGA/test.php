@@ -98,6 +98,54 @@ class SigaTest extends PHPUnit_Framework_TestCase
 		$this->principalFunction("module_test");
 	}
 	
+	/* Program tests */
+	//@test
+	public function testDepartment()
+	{
+		$this->principalFunction("department_test");
+	}
+	
+	//@test
+	public function testEmployee()
+	{
+		$this->principalFunction("employee_test");
+	}
+	
+	//@test
+	public function testFunction()
+	{
+		$this->principalFunction("function_test");
+	}
+	
+	//@test
+	public function testSector()
+	{
+		$this->principalFunction("sector_test");
+	}
+	
+	//@test
+	public function testCourse()
+	{
+		$this->principalFunction("course_test");
+	}
+	
+	//@test
+	public function testSelectionProcess()
+	{
+		$this->principalFunction("selection_process_test");
+	}
+	
+	//@test
+	public function testSelectionSettings()
+	{
+		$this->principalFunction("process_settings_test");
+	}
+	
+	//@test
+	public function testProcessPhase()
+	{
+		$this->principalFunction("process_phase_test");
+	}
 }
 	
 ?>
