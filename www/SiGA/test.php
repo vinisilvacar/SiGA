@@ -66,18 +66,38 @@ class SigaTest extends PHPUnit_Framework_TestCase
 		
 		$this->assertEquals($this->readLineWithNumbersOfFailedTests($migration),$this->EXPECTED_RESULT);
 	}
-	
+
+	/* Auth tests */ 
 	//@test
-	public function testStudentRegistration()
+	public function testUser()
 	{
-		$this->principalFunction("student_registration_test");
+		$this->principalFunction("user_test");
 	}
 	
 	//@test
-	public function testDepartment()
+	public function testLogin()
 	{
-		$this->principalFunction("department_test");
+		$this->principalFunction("login_test");
 	}
+	
+	//@test
+	public function testPermission()
+	{
+		$this->principalFunction("permission_test");
+	}
+	
+	//@test
+	public function testGroup()
+	{
+		$this->principalFunction("group_test");
+	}
+	
+	//@test
+	public function testModule()
+	{
+		$this->principalFunction("module_test");
+	}
+	
 }
 	
 ?>
