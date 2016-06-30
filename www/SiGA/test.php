@@ -153,27 +153,50 @@ class SigaTest extends PHPUnit_Framework_TestCase
 	{
 		$this->principalFunction("email_notification_test");
 	}
+	
 	//@test
 	public function testRestorePasswordEmail()
 	{
 		$this->principalFunction("restore_password_email_test");
 	}
+	
 	//@test
 	public function testEnrolled_student_email()
 	{
 		$this->principalFunction("enrolled_student_email_test");
 	}
+	
 	//@test
 	public function testSecretaryEmailNotification()
 	{
 		$this->principalFunction("secretary_email_notification_test");
 	}
+	
 	//@test
 	public function testBarNotification()
 	{
 		$this->principalFunction("bar_notification_test");
 	}
 
+	/* Student tests */
+	//@test
+	public function testStudentRegistration()
+	{
+		$this->principalFunction("student_registration_test");
+	}
+	
+	//@test
+	public function testPhone()
+	{
+		$this->principalFunction("phone_test");
+	}
+
+	/* Secretary tests */
+	//@test
+	public function testClassHour()
+	{
+		$this->principalFunction("classHour_test");
+	}
 }
 	
 ?>
